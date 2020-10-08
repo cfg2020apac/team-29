@@ -1,3 +1,9 @@
+Team*.zip
+*.pem
+*.ppk
+*.crt
+*.key
+*.ovpn
 .DS_Store
 .vscode
 node_modules
