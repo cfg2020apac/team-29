@@ -95,7 +95,7 @@ class ClientPage2 extends React.Component{
         <h3>PhoneBreakpoint</h3>
         </PhoneBreakpoint> */}
         <PhoneBreakpoint>
-        <TopNav/>
+        <TopNav />
         <SearchBar/>
         <h3>Our Recommended Clients</h3>
         <div style={{textAlign:'right' ,marginRight:'10px'}}>

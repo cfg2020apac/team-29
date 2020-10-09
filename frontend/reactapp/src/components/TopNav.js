@@ -12,7 +12,13 @@ class TopNav extends React.Component {
   handleClick = e => {
     console.log('click ', e);
     this.setState({ current: e.key });
+
+    if(e.key == 'setting:5'){
+      this.props.handleLogOut();
+    }
   };
+
+
 
   render() {
     const { current } = this.state;
@@ -30,6 +36,7 @@ class TopNav extends React.Component {
             <Menu.Item key="setting:2">Job Coaches</Menu.Item>
             <Menu.Item key="setting:3">Legal Team</Menu.Item>
             <Menu.Item key="setting:4">Volunteers</Menu.Item>
+            <Menu.Item key="setting:5">Log Out</Menu.Item>
           </Menu.ItemGroup>
           {/* <Menu.ItemGroup title="Item 2">
             <Menu.Item key="setting:3">Option 3</Menu.Item>

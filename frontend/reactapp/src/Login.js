@@ -30,6 +30,7 @@ class Login extends React.Component {
         this.onPasswordChange = this.onPasswordChange.bind(this);
         this.onUsernameChange = this.onUsernameChange.bind(this);
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
+        this.setgoForward = this.setgoForward.bind(this);
         
     }
 

@@ -23,6 +23,7 @@ class App extends React.Component {
         role: '',
     };
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
   }
 
 
@@ -35,10 +36,16 @@ class App extends React.Component {
 
   }
 
+  handleLogOut(){
+    this.setState({
+      isLoggedIn:false,
+    });
+  }
+
   getCMUserInterface(){
       return(
           <HashRouter basename="/">
-           <Route path="/" exact component={ClientPage} />
+           <Route path="/" exact component={() => <ClientPage handleLogOut={this.handleLogOut} />} />
             <Route path="/clientPage2" component={ClientPage2} />
             <Route path="/clientPage4" component={ClientPage4} />
             <Route path="/clientPageDetail" component={ClientPageDetail} />
