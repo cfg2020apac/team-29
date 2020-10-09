@@ -106,7 +106,7 @@ class ClientPage2 extends React.Component{
      
      this.state.items.map((item,index)=>(
        index!=0?
-       <ClientCard2 name1={item.value.name} name2={this.state.name} status="Caught up in a lawsuit" id1={item.id} id2={this.state.id} todo='true'></ClientCard2>:
+       <ClientCard2 name1={item.value.name} name2={this.state.name} status={item.value.comments} id1={item.id} id2={this.state.id} todo='true'></ClientCard2>:
        <div></div>
      )
      )
@@ -122,7 +122,7 @@ class ClientPage2 extends React.Component{
         <textarea id="noter-text-area" name="textarea" value={this.state.value} onChange={this.handleChange} />
         <input type="submit" value="Save" />
       </form> */}
-        <Button type="primary" size="small" style={{float:"right", marginRight:"10px",marginTop:"5px"}} onClick={this.setRedirect} >CONFIRM</Button>
+        <Button type="primary" size="small" style={{ backgroundColor:"#18244E" ,color:"#FFFFFF" ,float:"right", marginRight:"10px", marginTop:"5px"}} onClick={this.setRedirect} >CONFIRM</Button>
         </PhoneBreakpoint>
         </div>
       
