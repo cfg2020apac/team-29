@@ -52,7 +52,7 @@ render(){
             <div style={{textAlign:'right'}}>
             <Button type="primary" onClick={this.setRedirect} >Match</Button>
             </div>:<div></div>
-        }}
+        }
         
       </Card>
       </div>
