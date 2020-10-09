@@ -17,7 +17,7 @@ export default function TopTabs(){
   <Tabs onChange={callback} type="card">
   
     <TabPane tab="Todo" key="1">
-    <ClientCard name="Client Name 1" status="client status 1" id="id1"></ClientCard>
+    <ClientCard name="Client Name 1" status="client status 1" id="id1" todo='true'></ClientCard>
         <ClientCard name="Client Name 2" status="client status 2" id="id2" todo='true'></ClientCard>
         <ClientCard name="Client Name 3" status="client status 3" id="id3" todo='true'></ClientCard>
         <ClientCard name="Client Name 4" status="client status 4" id="id4" todo='true'> </ClientCard>

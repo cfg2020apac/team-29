@@ -48,7 +48,7 @@ render(){
         <p >{this.props.status}</p>
         <p>Card content</p>
         
-            {(this.props.todo==true)?
+            {(this.props.todo=='true')?
             <div style={{textAlign:'right'}}>
             <Button type="primary" onClick={this.setRedirect} >Match</Button>
             </div>:<div></div>
