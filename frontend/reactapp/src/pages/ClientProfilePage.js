@@ -46,20 +46,20 @@ class ClientPage4 extends React.Component{
         return(
             <div>
             {this.renderConfirmRedirect()}
-            
+
             <PhoneBreakpoint>
-            
+
             <h1>Matched!</h1>
-    
+
             <div style={{textAlign:'left' ,marginRight:'10px'}}>
             <p>Application is sent to HDB officier for approval.</p>
             <p>Selected client:</p>
             </div>
-            
-    
+
+
             <ClientCard name="Client Name 1" status="client status 1" id="id1"></ClientCard>
             <ClientCard name="Client Name 2" status="client status 2" id="id5"></ClientCard>
-    
+
             <div style={{textAlign:'left' ,marginRight:'10px'}}>
             <p>Additional Notes:</p>
             <p>N/A</p>
@@ -70,11 +70,11 @@ class ClientPage4 extends React.Component{
             </div>
             </PhoneBreakpoint>
             </div>
-          
-    
+
+
         )
     }
-    
+
 }
 
 export default ClientPage4;
