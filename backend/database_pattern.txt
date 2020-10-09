@@ -1,0 +1,12 @@
+collection: clients
+fields:
+name        string
+gender      string			M/F
+birth       timestamp
+timestart   timestamp
+timeend	    timestamp
+location    string
+matched     boolean
+logs        array[array[]] 	timestamp(time), string(name), string(notes) 
+comments    string
+requests    array[]         string(party)

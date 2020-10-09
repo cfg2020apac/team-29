@@ -15,6 +15,21 @@ app.get("/", (req, res) => {
   return res.status(200).send("Firebase is working.");
 });
 
+app.get("/getclients", async (req, res) => {
+  const clientsref = db.collection("clients");
+  try {
+    const snapshot = await clientsref.get();
+    var response = {clients: []};
+    snapshot.forEach(doc => {
+      response["clients"].push({id: doc.id, value: doc.data()});
+    });
+    return res.status(200).json(response);
+  } catch (e) {
+    console.log("Failed to get clients", snapshot);
+    return res.status(500).end();
+  }
+});
+
 app.post("/write-doc", async (req, res) => {
   const { collection, documentId, documentValue } = req.body;
   const docRef = db.collection(collection).doc(documentId);
