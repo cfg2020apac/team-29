@@ -182,12 +182,10 @@ app.get("/suggestclient", async (req, res) => {
     var currId = item.id;
     var location = item.data().location;
     var timestart = item.data().timestart._seconds;
-    console.log(timestart)
 
     const snapshot = await clientsref.get();
     var response = {clients: []};
     snapshot.forEach(doc => {
-      console.log(Math.abs(doc.data().timestart._seconds - timestart));
       if (doc.data().location == location && doc.id != currId && Math.abs(doc.data().timestart._seconds - timestart) <= 604800)
         response["clients"].push({id: doc.id, value: doc.data()});
     });
