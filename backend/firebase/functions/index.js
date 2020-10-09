@@ -26,17 +26,18 @@ app.post("/login", async(req,res)=>{
   
   username = req.body.username;
   password = req.body.password;
-  role     = req.body.role;
 
   try{
-    const snapshot = await clientsref.where( 'username','==',username).get();
+    snapshot.forEach(doc =>{
+
+    const snapshot = await clientsref.where( 'username','==', doc.data().username).get();
     
     if(snapshot.empty){
       return res.status(500).send("Username does not exist");
     }
-    
-    snapshot.forEach(doc =>{
-      if (password == doc.password){
+
+    role = doc.data().role;
+      if (password == doc.data().password){
         if(role =="cm"){
           response.writeHead(302 , {
               'Location' : '/cm'
@@ -58,13 +59,16 @@ app.post("/login", async(req,res)=>{
         console.log("Incorrect password");
         return res.status(500).send("Incorrect password");
       }
-    });   
-  }catch (e){
+    });
+      
+  } catch (e){
     console.log("Failed to get username");
     return res.status(500).end();
   }
-})
 
+
+}
+)
 app.get("/getclients", async (req, res) => {
   const clientsref = db.collection("clients");
   try {
