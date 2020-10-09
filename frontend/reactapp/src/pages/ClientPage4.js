@@ -16,8 +16,10 @@ class ClientPage4 extends React.Component{
         super(props);
         this.state={
             redirect: false,
-            id:this.props.location.id,
-            name:this.props.location.name
+            id1:this.props.location.id1,
+            name1:this.props.location.name1,
+            name2:this.props.location.name2,
+            id2:this.props.location.id2
         };
 
         this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
@@ -30,8 +32,10 @@ class ClientPage4 extends React.Component{
         );
     };
     componentDidMount(){
-        console.log(this.state.id)
-        console.log(this.state.name)
+        console.log(this.state.id1)
+        console.log(this.state.name1)
+        console.log(this.state.id2)
+        console.log(this.state.name2)
     }
 
     setConfirmRedirect(){
@@ -63,8 +67,8 @@ class ClientPage4 extends React.Component{
             </div>
             
     
-            <ClientCard name="Client Name 1" status="client status 1" id="id1"></ClientCard>
-            <ClientCard name="Client Name 2" status="client status 2" id="id5"></ClientCard>
+            <ClientCard name={this.state.name1}  status="client status 1" id={this.state.id1}></ClientCard>
+            <ClientCard name={this.state.name2}status="client status 2" id={this.state.id2}></ClientCard>
     
             <div style={{textAlign:'left' ,marginRight:'10px'}}>
             <p>Additional Notes:</p>

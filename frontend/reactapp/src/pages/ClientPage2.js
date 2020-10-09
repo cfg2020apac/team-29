@@ -52,6 +52,8 @@ class ClientPage2 extends React.Component{
         }
       }
       componentDidMount() {
+        console.log(this.state.name)
+        console.log(this.state.id)
         fetch("http://localhost:3002/cfg-apac-team29/us-central1/api/getclients")
           .then(res => res.json())
           .then(
@@ -103,7 +105,9 @@ class ClientPage2 extends React.Component{
         {
      
      this.state.items.map((item,index)=>(
-       <ClientCard2 name={item.value.name} status="client status 2" id={item.id} todo='true'></ClientCard2>
+       index!=0?
+       <ClientCard2 name1={item.value.name} name2={this.state.name} status="client status 2" id1={item.id} id2={this.state.id} todo='true'></ClientCard2>:
+       <div></div>
      )
      )
    }
