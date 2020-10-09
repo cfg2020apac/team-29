@@ -31,12 +31,13 @@ app.get("/getclients", async (req, res) => {
 });
 
 app.post("/addclient", async(req, res) => {
-  const clientsref = db.collection("clients");
 
+  const clientsref = db.collection("clients");
+  
   logs = [req.body.log];
   requests = [req.body.request];
-
-  clientsref.set({
+  
+  const data = {
     name: req.body.name,
     gender : req.body.gender,
     birth: req.body.birth,
@@ -47,13 +48,10 @@ app.post("/addclient", async(req, res) => {
     comments : req.body.comments,
     log : logs,
     request : requests
-  })
-  .then(function() {
-    console.log("Client successfully added!");
-  })
-  .catch(function(error) {
-      console.error("Failed to add client ", error);
-  });
+  };
+  
+  const res = await clientsref.add(data);
+  console.log( 'Added client with ID:', res.id);
 });
 
 app.delete("/deleteclients/:id", async (req, res) => {
