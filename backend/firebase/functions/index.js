@@ -35,43 +35,26 @@ app.post("/login", async(req,res)=>{
   username = req.body.username;
   password = req.body.password;
 
-  const snapshot = await loginref.where( 'username','==', username).get();
-
+  const snapshot = await loginref.where('username', '==', username).get();
   
-  
-  try{
+  try {
     if(snapshot.empty){
-      return res.status(500).send("Username does not exist");
+      return res.status(401).send("Username does not exist");
     }
     snapshot.forEach(doc =>{
 
     role = doc.data().role;
       if (password == doc.data().password){
-        if(role =="cm"){
-          response.writeHead(302 , {
-              'Location' : '/cm'
-          });
-        }
-        else if(role =="hdb"){
-          response.writeHead(302 , {
-            'Location' : '/hdb'
-        });
-        }
-        else{
-          response.writeHead(302 , {
-            'Location' : '/exp'
-        });
-        }
-        
+        return res.status(200).send(role);
       }
       else{
         console.log("Incorrect password");
-        return res.status(500).send("Incorrect password");
+        return res.status(401).send("Incorrect password");
       }
     });
       
   } catch (e){
-    console.log("Failed to get username");
+    console.log("Error during login");
     return res.status(500).end();
   }
 
