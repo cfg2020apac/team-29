@@ -54,7 +54,7 @@ render(){
             <Button  style={{float:'left'}}type="secondary"> More </Button>
         
        
-            <Button style={{float:'right'}} type="primary"  >Select </Button>
+            <Button style={{float:'right'}} type="primary" onClick={this.setRedirect} >Select </Button>
         </div>
       </Card>
       </div>
