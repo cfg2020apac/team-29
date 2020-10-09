@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", async(req,res)=>{
+  res.set({"Access-Control-Allow-Origin": "http://localhost:3000"});
   const loginref = db.collection("logins")
   
   username = req.body.username;
@@ -72,6 +73,7 @@ app.post("/login", async(req,res)=>{
 )
 
 app.get("/getclients", async (req, res) => {
+  res.set({"Access-Control-Allow-Origin": "http://localhost:3000"});
   const clientsref = db.collection("clients");
   try {
     const snapshot = await clientsref.where("matched", "==", false).get();
@@ -87,6 +89,7 @@ app.get("/getclients", async (req, res) => {
 });
 
 app.get("/getclientinfo/:id", async (req, res) => {
+  res.set({"Access-Control-Allow-Origin": "http://localhost:3000"});
   const docRef = db.collection("clients").doc(req.params.id);
   try {
     const r = await docRef.get();
@@ -99,6 +102,7 @@ app.get("/getclientinfo/:id", async (req, res) => {
 });
 
 app.post("/addclient", async(req, res) => {
+  res.set({"Access-Control-Allow-Origin": "http://localhost:3000"});
 
   const clientsref = db.collection("clients");
   
@@ -123,6 +127,7 @@ app.post("/addclient", async(req, res) => {
 });
 
 app.put("/updateclients/:id", async (req, res) => {
+  res.set({"Access-Control-Allow-Origin": "http://localhost:3000"});
   const clientsref = db.collection("clients");
   logs = [req.body.log];
   requests = [req.body.request];
@@ -149,6 +154,7 @@ app.put("/updateclients/:id", async (req, res) => {
 });
 
 app.delete("/deleteclients/:id", async (req, res) => {
+  res.set({"Access-Control-Allow-Origin": "http://localhost:3000"});
   const clientsref = db.collection("clients");
   
   try {
@@ -162,6 +168,7 @@ app.delete("/deleteclients/:id", async (req, res) => {
 });
 
 app.post("/matchclient", async (req,res) =>{
+  res.set({"Access-Control-Allow-Origin": "http://localhost:3000"});
   id1 = req.body.id1;
   id2 = req.body.id2;
 
@@ -186,6 +193,7 @@ app.post("/matchclient", async (req,res) =>{
 });
 
 app.get("/suggestclient", async (req, res) => {
+  res.set({"Access-Control-Allow-Origin": "http://localhost:3000"});
   const clientsref = db.collection("clients");
   
   try {
@@ -211,6 +219,7 @@ app.get("/suggestclient", async (req, res) => {
 });
 
 app.post("/write-doc", async (req, res) => {
+  res.set({"Access-Control-Allow-Origin": "http://localhost:3000"});
   const { collection, documentId, documentValue } = req.body;
   const docRef = db.collection(collection).doc(documentId);
   try {
