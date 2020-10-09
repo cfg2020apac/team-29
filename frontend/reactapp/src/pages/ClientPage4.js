@@ -62,7 +62,7 @@ class ClientPage4 extends React.Component{
     
             <div style={{textAlign:'left' ,marginRight:'10px'}}>
             <p>Additional Notes:</p>
-            <p>N/A</p>
+            <p>{this.props.value}</p>
             {this.getSubmissionTime()}
             </div>
             <div style={{textAlign:'right'}}>
