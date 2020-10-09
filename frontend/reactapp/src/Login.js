@@ -100,7 +100,7 @@ class Login extends React.Component {
         return(
             <div className='loginPageTitle'>
                 <img src={logo2}></img>
-            <h1>New Hope Mobile Matching System</h1>
+            <h1 className='LoginElement'>New Hope Mobile Matching System</h1>
             </div>
         );
     }
@@ -132,11 +132,11 @@ class Login extends React.Component {
             <div className='Login'>
                 {this.showLoginPageTitle()}
                 <br/>
-                    <label for="input_username">Username:</label>
-                    <input id="input_username" type="text" value={this.username} onChange={this.onUsernameChange} />
+                    <label className='LoginElement' for="input_username">Username:</label>
+                    <input className='LoginElement' id="input_username" type="text" value={this.username} onChange={this.onUsernameChange} />
                     <br/>
-                    <label for="input_password">Password:</label>
-                    <input id="input_password" type="password" value={this.password} onChange={this.onPasswordChange} />
+                    <label className='LoginElement' for="input_password">Password:</label>
+                    <input className='LoginElement' id="input_password" type="password" value={this.password} onChange={this.onPasswordChange} />
                     <br/>
                     <Button type='primary' onClick={this.handleLoginSubmit}>Submit</Button>
                 {this.handleLoginFailed()}       
