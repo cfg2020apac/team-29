@@ -45,7 +45,10 @@ app.post("/login", async(req,res)=>{
 
     role = doc.data().role;
       if (password == doc.data().password){
-        return res.status(200).send(role);
+        return res.status(200).send({
+          status: "success",
+          role: role
+        });
       }
       else{
         console.log("Incorrect password");
