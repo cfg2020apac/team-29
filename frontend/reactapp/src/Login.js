@@ -7,6 +7,7 @@ import { Form, Input, Button, Checkbox } from 'antd';
 import {Redirect} from 'react-router-dom'
 import 'antd/dist/antd.css';
 import './Login.css';
+import logo2 from './nhcslogo.jpg';
 
 // const isDesktopOrLaptop = useMediaQuery({query: '(min-device-width: 1224px)'});
 // const isBigScreen = useMediaQuery({ query: '(min-device-width: 1824px)' });
@@ -98,6 +99,7 @@ class Login extends React.Component {
     showLoginPageTitle(){
         return(
             <div className='loginPageTitle'>
+                <img src={logo2}></img>
             <h1>New Hope Mobile Matching System</h1>
             </div>
         );
@@ -128,7 +130,6 @@ class Login extends React.Component {
     render(){
         return(
             <div className='Login'>
-            {this.rendergoForward()}
                 {this.showLoginPageTitle()}
                 <br/>
                     <label for="input_username">Username:</label>
@@ -138,7 +139,6 @@ class Login extends React.Component {
                     <input id="input_password" type="password" value={this.password} onChange={this.onPasswordChange} />
                     <br/>
                     <Button type='primary' onClick={this.handleLoginSubmit}>Submit</Button>
-                    <Button type="primary" onClick={this.setgoForward}>Skip</Button>
                 {this.handleLoginFailed()}       
             </div>
         );
