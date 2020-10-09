@@ -49,7 +49,10 @@ class ClientCard extends Component{
         if (this.state.redirectToClientDetail == true) {
           return <Redirect to={{
             pathname: '/clientPageDetail',
-            id:this.state.id
+            id:this.state.id,
+            state:{
+              id:this.state.id
+           }
           }}></Redirect>
         }
       }
