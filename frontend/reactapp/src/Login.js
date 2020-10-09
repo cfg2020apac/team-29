@@ -34,42 +34,44 @@ class Login extends React.Component {
     handleLoginSubmit(event){
         event.preventDefault();
         //ADD CODE: ajax API here to check if the user exist
-        // $.ajax({
-        //     type:'POST',
-        //     url: APIURL+'login',
-        //     dataType: 'json',
-        //     data: {
-        //         username: this.state.username,
-        //         password: this.state.password
-        //       },
-        //     xhrFields: {withCredentials: true},
-        //     success: function(data) {
-        //         console.log('print data:',data);                
-        //         if(data.status == 'success'){
-        //             this.props.handleLoginSubmit(event, data.role);
-        //             this.setState({
-        //                 isLoginFailed:false,
-        //             });
-        //         }else{
-        //             this.setState({
-        //                 isLoginFailed:true
-        //             });
-        //         }
-        //         this.refresh();
+        $.ajax({
+            type:'POST',
+            url: APIURL+'login',
+            dataType: 'json',
+            data: {
+                username: this.state.username,
+                password: this.state.password
+              },
+            xhrFields: {withCredentials: true},
+            success: function(data) {
+                console.log('print data:',data);                
+                if(data.status == 'success'){
+                    this.props.handleLoginSubmit(event, data.role);
+                    this.setState({
+                        isLoginFailed:false,
+                    });
+                }else{
+                    this.setState({
+                        isLoginFailed:true
+                    });
+                }
+                // this.refresh();
               
-        //     }.bind(this),
-        //     error: function(xhr, ajaxOptions, thrownError) {
-        //         alert(xhr.status, thrownError);
-        //     }.bind(this)
-        // });
-        let isVerified = this.state.username == '123';
-        if(isVerified){
-            this.props.handleLoginSubmit(event, 'Case Manager');
-        }else{
-            this.setState({
-                isLoginFailed:true
-            });
-        }
+            }.bind(this),
+            error: function(xhr, ajaxOptions, thrownError) {
+                this.setState({
+                    isLoginFailed:true
+                });
+            }.bind(this)
+        });
+        // let isVerified = this.state.username == '123';
+        // if(isVerified){
+        //     this.props.handleLoginSubmit(event, 'Case Manager');
+        // }else{
+        //     this.setState({
+        //         isLoginFailed:true
+        //     });
+        // }
     }
 
     onUsernameChange(event) {

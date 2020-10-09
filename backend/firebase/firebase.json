@@ -11,6 +11,9 @@
   "emulators": {
     "functions": {
       "port": "3002"
+    },
+    "firestore":{
+      "port":"3005"
     }
   }
 }
