@@ -6,7 +6,7 @@ import TabletBreakpoint from '../utilities/tabletbreakpoint';
 import PhoneBreakpoint from '../utilities/phonebreakpoint';
 import ClientCard from '../components/ClientCard.js';
 import {UserAddOutlined} from '@ant-design/icons';
-import { Card ,Button} from 'antd';
+import { Card ,Button,PageHeader} from 'antd';
 import {Redirect} from 'react-router-dom';
 
 
@@ -59,11 +59,13 @@ class ClientPage4 extends React.Component{
             
             <PhoneBreakpoint>
             
-            <h1>Matched!</h1>
+            {/* <h1>Matched!</h1> */}
+            <PageHeader style={{borderWidth: "1px", borderWeight:'solid', backgroundColor:'#18244E', color:'#FFFFFF',alignCenter:'true',textSize:'large' }}
+                     > Matched!</PageHeader>
     
             <div style={{textAlign:'left' ,marginRight:'10px'}}>
-            <p>Application is sent to HDB officier for approval.</p>
-            <p>Selected client:</p>
+            <p style={{marginTop:'10px',marginLeft:'10px'}}>Application is sent to HDB officier for approval.</p>
+            <p style={{marginLeft:'10px'}}>Selected client:</p>
             </div>
             
     
@@ -76,7 +78,7 @@ class ClientPage4 extends React.Component{
             {this.getSubmissionTime()}
             </div>
             <div style={{textAlign:'right'}}>
-            <Button type="primary" onClick={this.setConfirmRedirect} >Confirm</Button>
+            <Button style={{backgroundColor:'#18244E',color:'#FFFFFF'}}type="primary" onClick={this.setConfirmRedirect} >Confirm</Button>
             </div>
             </PhoneBreakpoint>
             </div>
