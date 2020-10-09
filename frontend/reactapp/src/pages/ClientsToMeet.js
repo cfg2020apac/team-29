@@ -11,13 +11,16 @@ import {StarFilled} from '@ant-design/icons';
 
 
 
-function JobCoachPage(){
+function ClientsToMeet(){
     return(
         <div>
         <PhoneBreakpoint>
         <TopNav/>
         <h3 style={{margin: '20px', fontSize: '25px', fontWeight: 'bold'}}>Client To Meet</h3>
         <ClientCard3 name="Client Name 1" status="client status 1" id="id1"></ClientCard3>
+        <ClientCard3 name="Client Name 2" status="client status 2" id="id2"></ClientCard3>
+        <ClientCard3 name="Client Name 3" status="client status 3" id="id3"></ClientCard3>
+        <ClientCard3 name="Client Name 4" status="client status 4" id="id4"></ClientCard3>
         </PhoneBreakpoint>
         </div>
 
@@ -25,4 +28,4 @@ function JobCoachPage(){
     )
 }
 
-export default JobCoachPage
+export default ClientsToMeet;

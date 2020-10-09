@@ -12,44 +12,54 @@ class ClientCard extends Component{
         super(props);
 
         this.setRedirect = this.setRedirect.bind(this)
-        this.renderRedirect = this.renderRedirect.bind(this)
+        this.setRedirectToClientDetail = this.setRedirectToClientDetail.bind(this)
+        this.renderRedirectToClientDetail = this.renderRedirectToClientDetail.bind(this)
         this.state={
             redirect: false,
-            id: -1
+            redirectToClientDetail:false,
+            id: -1,
+            items:[]
         }
-
     }
 
     setRedirect() {
+      this.setState({
+        redirect: true,
+        id: this.props.id,
+        name:this.props.name
+      })
+    }
+      setRedirectToClientDetail() {
+          console.log(this.state.redirect)
         console.log(this.props.id)
         this.setState({
-          redirect: true,
+          redirectToClientDetail: true,
           id: this.props.id
         })
       }
-      renderRedirect() {
-        if (this.state.redirect == true) {
+      renderRedirectToClientDetail() {
+          console.log(this.state.redirect)
+        if (this.state.redirectToClientDetail == true) {
           return <Redirect to={{
-            pathname: '/ClientProfilePage',
+            pathname: '/clientPageDetail',
             id:this.state.id
           }}></Redirect>
         }
       }
-
 render(){
 
     return(
         <div>
         <div>
-              {this.renderRedirect()}
+             {console.log(this.state.items)}
+              {this.renderRedirectToClientDetail()}
         </div>
         <Card title={this.props.name} extra={<a href="#">{this.props.id}</a>} style={{ marginRight:'10px',marginLeft:'10px',marginBottom:'20px',height:200,width: 'auto', textAlign:'left'}}>
         <div style={{display:'flex'}} >
         <p style={{marginRight:'200px'}}>{this.props.status}</p>
         </div>
         <div>
-            <Button  style={{float:'left'}}type="secondary"> More </Button>
-            <Button style={{float:'right'}} type="primary" onClick={this.setRedirect} >Add Log</Button>
+            <Button  style={{float:'left'}}type="secondary"  onClick={this.setRedirectToClientDetail}> More </Button>
         </div>
       </Card>
       </div>
