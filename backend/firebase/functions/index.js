@@ -27,10 +27,10 @@ app.post("/login", async(req,res)=>{
   username = req.body.username;
   password = req.body.password;
 
+  const snapshot = await clientsref.where( 'username','==', username).get();
+
   try{
     snapshot.forEach(doc =>{
-
-    const snapshot = await clientsref.where( 'username','==', doc.data().username).get();
     
     if(snapshot.empty){
       return res.status(500).send("Username does not exist");
@@ -69,6 +69,7 @@ app.post("/login", async(req,res)=>{
 
 }
 )
+
 app.get("/getclients", async (req, res) => {
   const clientsref = db.collection("clients");
   try {
