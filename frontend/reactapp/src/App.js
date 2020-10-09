@@ -18,7 +18,7 @@ function App() {
     // <ClientPage/>
     // </div>
 
-    <HashRouter basename="/clientPage1">
+    <HashRouter basename="/">
      <Route path="/" exact component={ClientPage} />
       <Route path="/clientPage2" component={ClientPage2} />
       <Route path="/clientPage4" component={ClientPage4} />
