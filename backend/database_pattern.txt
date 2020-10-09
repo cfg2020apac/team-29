@@ -1,0 +1,27 @@
+collection: clients
+fields:
+name        string
+gender      string			M/F
+birth       timestamp
+timestart   timestamp
+timeend	    timestamp
+location    string
+matched     boolean
+logs        array[array[]] 	timestamp(time), string(name), string(notes) 
+comments    string
+requests    array[]         string(party)
+
+collection: logins
+documents:
+fields:
+name        string
+password    string          should be hashed
+role        string          {"cm", "hdb", "exp"}
+
+collection: match
+documents:
+fields:
+id1       (id of first person matched)    string
+id2       (id of second person matched)   string
+time                                      timestamp
+match_status                              string
