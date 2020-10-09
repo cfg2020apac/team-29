@@ -1,5 +1,6 @@
 import { Menu } from 'antd';
 import React from 'react'
+import {Redirect} from 'react-router-dom'
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
@@ -12,11 +13,18 @@ class TopNav extends React.Component {
   handleClick = e => {
     console.log('click ', e);
     this.setState({ current: e.key });
+    if (e.key == "setting:2") {
+      return (<Redirect to={{
+        pathname: '/ClientPage4',
+        id:this.state.id
+      }}></Redirect>);
+    }
   };
 
   render() {
     const { current } = this.state;
     return (
+
       <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
         {/* <Menu.Item key="mail" icon={<MailOutlined />}>
           Navigation One
@@ -28,7 +36,7 @@ class TopNav extends React.Component {
           <Menu.ItemGroup title="Your List">
             <Menu.Item key="setting:1">Search Client</Menu.Item>
             <Menu.Item key="setting:2">Job Coaches</Menu.Item>
-            <Menu.Item key="setting:3">Legal Team</Menu.Item>
+            <Menu.Item key="setting:3">Legal Advisor</Menu.Item>
             <Menu.Item key="setting:4">Volunteers</Menu.Item>
           </Menu.ItemGroup>
           {/* <Menu.ItemGroup title="Item 2">
