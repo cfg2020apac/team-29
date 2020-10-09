@@ -18,10 +18,13 @@ class ClientCard extends Component{
         this.state={
             redirect: false,
             redirectToClientDetail:false,
-            id: -1
+            id: -1,
+            items:[]
         }
 
     }
+   
+  
 
     setRedirect() {
         console.log(this.state.redirect)
@@ -29,7 +32,8 @@ class ClientCard extends Component{
         console.log(this.props.id)
         this.setState({
           redirect: true,
-          id: this.props.id
+          id: this.props.id,
+          name:this.props.name
         })
       }
       setRedirectToClientDetail() {
@@ -55,9 +59,11 @@ class ClientCard extends Component{
             // this.setState({
             //     redirect:false
             // })
+            console.log(this.state.id)
           return <Redirect to={{
             pathname: '/clientPage2',
-            id:this.state.id
+            id:this.state.id,
+            name:this.state.name
           }}></Redirect>
         }
       }
@@ -67,11 +73,11 @@ render(){
     return(
         <div>
         <div>
-             
+             {console.log(this.state.items)}
               {this.renderRedirectToClientDetail()}
               {this.renderRedirect()}
         </div>
-    
+      
         <Card title={this.props.name} extra={<a href="#">{this.props.id}</a>} style={{ marginRight:'10px',marginLeft:'10px',marginBottom:'20px',height:200,width: 'auto', textAlign:'left'}}>
         <p >{this.props.status}</p>
         <p>Card content</p>

@@ -24,14 +24,16 @@ class ClientCard extends Component{
         console.log(this.props.id)
         this.setState({
           redirect: true,
-          id: this.props.id
+          id: this.props.id,
+          name:this.props.name
         })
       }
       renderRedirect() {
         if (this.state.redirect == true) {
           return <Redirect to={{
             pathname: '/clientPage4',
-            id:this.state.id
+            id:this.state.id,
+            name:this.state.name
           }}></Redirect>
         }
       }

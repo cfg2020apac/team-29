@@ -16,6 +16,8 @@ class ClientPage4 extends React.Component{
         super(props);
         this.state={
             redirect: false,
+            id:this.props.location.id,
+            name:this.props.location.name
         };
 
         this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
@@ -27,6 +29,10 @@ class ClientPage4 extends React.Component{
             <p>Submission time: 08/10/2020 06:47pm</p>
         );
     };
+    componentDidMount(){
+        console.log(this.state.id)
+        console.log(this.state.name)
+    }
 
     setConfirmRedirect(){
         this.setState({
