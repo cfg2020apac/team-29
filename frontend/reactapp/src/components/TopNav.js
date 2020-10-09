@@ -1,5 +1,6 @@
 import { Menu } from 'antd';
 import React from 'react'
+import {Redirect} from 'react-router-dom'
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import '../../src/index.css'
 const { SubMenu } = Menu;
@@ -15,7 +16,12 @@ class TopNav extends React.Component {
 
     if(e.key == 'setting:5'){
       this.props.handleLogOut();
-    }
+  }else if (e.key == "setting:2") {
+        return (<Redirect to={{
+          pathname: '/ClientPage4',
+          id:this.state.id
+        }}></Redirect>);
+  }
   };
 
 
@@ -34,7 +40,7 @@ class TopNav extends React.Component {
           <Menu.ItemGroup title="Your List">
             <Menu.Item key="setting:1">Search Client</Menu.Item>
             <Menu.Item key="setting:2">Job Coaches</Menu.Item>
-            <Menu.Item key="setting:3">Legal Team</Menu.Item>
+            <Menu.Item key="setting:3">Legal Advisor</Menu.Item>
             <Menu.Item key="setting:4">Volunteers</Menu.Item>
             <Menu.Item key="setting:5">Log Out</Menu.Item>
           </Menu.ItemGroup>

@@ -8,10 +8,11 @@ import DesktopBreakpoint from './utilities/desktopbreakpoint';
 import TabletBreakpoint from './utilities/tabletbreakpoint';
 import PhoneBreakpoint from './utilities/phonebreakpoint';
 import { Route, Switch, Link, BrowserRouter,HashRouter } from "react-router-dom";
-import ClientPage from './pages/ClientPage.js'
+import ClientPage from './pages/ClientPage.js';
 import ClientPage2 from './pages/ClientPage2.js';
 import ClientPage4 from './pages/ClientPage4.js';
 import ClientPageDetail from './pages/ClientPageDetail.js';
+import ClientsToMeet from './pages/ClientsToMeet.js';
 
 const APIURL = 'http://localhost:3002/cfg-apac-team29/us-central1/api/';
 
