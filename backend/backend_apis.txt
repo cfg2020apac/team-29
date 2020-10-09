@@ -1,0 +1,16 @@
+backend apis:
+
+GET /                               => Test if firebase works
+GET /getclients                     => Get a list of all the clients                     
+GET /suggestclient&id=              => Get a list of suggested clients' ids
+
+POST /login                         => Parameters: username, password
+
+POST /matchclient                   => Parameters: id1, id2
+                                        id1 and id2 in the body to match the clients
+                                        
+POST /addclient                     => Add the client with necessary info
+
+PUT /updateclient                   => Update client info / add notes or logs
+
+DELETE /deleteclient                => Delete client
