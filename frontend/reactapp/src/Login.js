@@ -4,6 +4,7 @@ import './App.css';
 import { useMediaQuery } from 'react-responsive';
 import $ from 'jquery'; 
 import { Form, Input, Button, Checkbox } from 'antd';
+import {Redirect} from 'react-router-dom'
 import 'antd/dist/antd.css';
 import './Login.css';
 
@@ -23,6 +24,7 @@ class Login extends React.Component {
             isLoginFailed: false,
             username: '',
             password: '',
+            redirect:false
         };
 
         this.onPasswordChange = this.onPasswordChange.bind(this);
@@ -99,11 +101,33 @@ class Login extends React.Component {
             </div>
         );
     }
-    
+    setgoForward(){
+     
+            
+            this.setState({
+              redirect: true
+             
+            })
+          
+    }
+    rendergoForward() {
+          
+        if (this.state.redirect == true) {
+            // this.setState({
+            //     redirect:false
+            // })
+          
+          return <Redirect to={{
+            pathname: '/clientPage',
+           
+          }}></Redirect>
+        }
+      }
 
     render(){
         return(
             <div className='Login'>
+            {this.rendergoForward()}
                 {this.showLoginPageTitle()}
                 <br/>
                     <label for="input_username">Username:</label>
@@ -113,6 +137,7 @@ class Login extends React.Component {
                     <input id="input_password" type="password" value={this.password} onChange={this.onPasswordChange} />
                     <br/>
                     <Button type='primary' onClick={this.handleLoginSubmit}>Submit</Button>
+                    <Button type="primary" onClick={this.setgoForward}>Skip</Button>
                 {this.handleLoginFailed()}       
             </div>
         );

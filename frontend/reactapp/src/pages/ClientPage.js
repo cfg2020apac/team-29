@@ -27,8 +27,8 @@ import TopTabs from '../components/TopTabs.js';
         </PhoneBreakpoint> */}
         <PhoneBreakpoint>
         <TopNav/>
-        <h3>Client List/Flatmate List for Matching</h3>
-        <SearchBar/>
+        <h3>Client List</h3>
+        <SearchBar />
         <TopTabs/>
       
 

@@ -67,13 +67,13 @@ render(){
         <p style={{marginRight:'200px'}}>{this.props.status}</p>
         <StarFilled style={{marginRight:'50px'}}/>
         </div>
-        <div>Card cont 2</div> 
+      
        
         <div>
-            <Button  style={{float:'left'}}type="secondary"> More </Button>
+            <Button  style={{float:'left',backgroundColor:"#18244E" ,color:"#FFFFFF"}}type="secondary"> More </Button>
         
        
-            <Button style={{float:'right'}} type="primary" onClick={this.setRedirect} >Select </Button>
+            <Button style={{float:'right',backgroundColor:"#18244E" ,color:"#FFFFFF"}} type="primary" onClick={this.setRedirect} >Select </Button>
         </div>
       </Card>
       </div>

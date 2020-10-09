@@ -1,7 +1,7 @@
 import { Menu } from 'antd';
 import React from 'react'
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
-
+import '../../src/index.css'
 const { SubMenu } = Menu;
 
 class TopNav extends React.Component {
@@ -17,14 +17,14 @@ class TopNav extends React.Component {
   render() {
     const { current } = this.state;
     return (
-      <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
+      <Menu style={{backgroundColor:'#18244E', color:'#FFFFFF'}}onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
         {/* <Menu.Item key="mail" icon={<MailOutlined />}>
           Navigation One
         </Menu.Item> */}
         {/* <Menu.Item key="app" disabled icon={<AppstoreOutlined />}>
           Navigation Two
         </Menu.Item> */}
-        <SubMenu key="SubMenu" icon={<SettingOutlined />} title="Menu">
+        <SubMenu key="SubMenu" icon={<SettingOutlined />}  title="Menu">
           <Menu.ItemGroup title="Your List">
             <Menu.Item key="setting:1">Search Client</Menu.Item>
             <Menu.Item key="setting:2">Job Coaches</Menu.Item>

@@ -106,7 +106,7 @@ class ClientPage2 extends React.Component{
      
      this.state.items.map((item,index)=>(
        index!=0?
-       <ClientCard2 name1={item.value.name} name2={this.state.name} status="client status 2" id1={item.id} id2={this.state.id} todo='true'></ClientCard2>:
+       <ClientCard2 name1={item.value.name} name2={this.state.name} status="Caught up in a lawsuit" id1={item.id} id2={this.state.id} todo='true'></ClientCard2>:
        <div></div>
      )
      )

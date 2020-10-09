@@ -1,16 +1,21 @@
 import { Input } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import React from 'react'
+import '../index.css'
+
 const { Search } = Input;
+
 
 const suffix = (
   <AudioOutlined
     style={{
       fontSize: 16,
-      color: '#1890ff',
+      color: '#18244E'
     }}
   />
 );
+
+//backgroundColor:"#18244E" ,color:"#FFFFFF"
 
 export default function SearchBar (){
 
@@ -23,7 +28,7 @@ export default function SearchBar (){
     />
     <br /> */}
    
-    <Search placeholder="Search for client name or id" onSearch={value => console.log(value)} enterButton />
+    <Search style={{marginLeft:'10px',marginRight:'10px'}} placeholder="Search for client name or id" onSearch={value => console.log(value)} enterButton />
     <br />
     <br />
     {/* <Search

@@ -6,6 +6,10 @@
   height: 40vmin;
   pointer-events: none;
 }
+.tabfont {
+  color: #18244E;
+  font-weight: 500;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

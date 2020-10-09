@@ -67,8 +67,8 @@ class ClientPage4 extends React.Component{
             </div>
             
     
-            <ClientCard name={this.state.name1}  status="client status 1" id={this.state.id1}></ClientCard>
-            <ClientCard name={this.state.name2}status="client status 2" id={this.state.id2}></ClientCard>
+            <ClientCard name={this.state.name1}  status="In need for a job" id={this.state.id1}></ClientCard>
+            <ClientCard name={this.state.name2}status="Caught up in a lawsuit" id={this.state.id2}></ClientCard>
     
             <div style={{textAlign:'left' ,marginRight:'10px'}}>
             <p>Additional Notes:</p>

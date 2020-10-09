@@ -80,14 +80,13 @@ render(){
       
         <Card title={this.props.name} extra={<a href="#">{this.props.id}</a>} style={{ marginRight:'10px',marginLeft:'10px',marginBottom:'20px',height:200,width: 'auto', textAlign:'left'}}>
         <p >{this.props.status}</p>
-        <p>Card content</p>
         
             {(this.props.todo=='true')?
             <div style={{textAlign:'right'}}>
-            <Button type="secondary" onClick={this.setRedirectToClientDetail}>More</Button>
-            <Button type="primary" onClick={this.setRedirect} >Match</Button>
+            <Button style={{float:'left',backgroundColor:"#18244E" ,color:"#FFFFFF"}}type="secondary" onClick={this.setRedirectToClientDetail}>More</Button>
+            <Button style={{float:'right',backgroundColor:"#18244E" ,color:"#FFFFFF"}}type="primary" onClick={this.setRedirect} >Match</Button>
             </div>:<div></div>
-        }}
+        }
         
       </Card>
       </div>

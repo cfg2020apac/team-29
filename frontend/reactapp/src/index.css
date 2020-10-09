@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* 
+.tabfont:active {
+  color: #18244E;
+  font-weight: 500;
+} */
+
+.ant-tabs-tab {
+  color: #363636 !important;
+}
+
+.ant-tabs-tab-active {
+  color: #363636 !important;
+}
