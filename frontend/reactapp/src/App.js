@@ -10,6 +10,7 @@ import { Route, Switch, Link, BrowserRouter,HashRouter } from "react-router-dom"
 import ClientPage from './pages/ClientPage.js'
 import ClientPage2 from './pages/ClientPage2.js';
 import ClientPage4 from './pages/ClientPage4.js';
+import ClientPageDetail from './pages/ClientPageDetail.js';
 
 function App() {
   return (
@@ -18,10 +19,12 @@ function App() {
     // <ClientPage/>
     // </div>
 
-    <HashRouter basename="/clientPage1">
+    <HashRouter basename="/">
      <Route path="/" exact component={ClientPage} />
       <Route path="/clientPage2" component={ClientPage2} />
       <Route path="/clientPage4" component={ClientPage4} />
+      <Route path="/clientPageDetail" component={ClientPageDetail} />
+
     </HashRouter>
     
  

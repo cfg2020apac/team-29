@@ -13,22 +13,48 @@ class ClientCard extends Component{
 
         this.setRedirect = this.setRedirect.bind(this)
         this.renderRedirect = this.renderRedirect.bind(this)
+        this.setRedirectToClientDetail = this.setRedirectToClientDetail.bind(this)
+        this.renderRedirectToClientDetail = this.renderRedirectToClientDetail.bind(this)
         this.state={
             redirect: false,
+            redirectToClientDetail:false,
             id: -1
         }
 
     }
 
     setRedirect() {
+        console.log(this.state.redirect)
+        console.log(this.state.redirectToClientDetail)
         console.log(this.props.id)
         this.setState({
           redirect: true,
           id: this.props.id
         })
       }
+      setRedirectToClientDetail() {
+          console.log(this.state.redirect)
+        console.log(this.props.id)
+        this.setState({
+          redirectToClientDetail: true,
+          id: this.props.id
+        })
+      }
+      renderRedirectToClientDetail() {
+          console.log(this.state.redirect)
+        if (this.state.redirectToClientDetail == true) {
+          return <Redirect to={{
+            pathname: '/clientPageDetail',
+            id:this.state.id
+          }}></Redirect>
+        }
+      }
       renderRedirect() {
+          
         if (this.state.redirect == true) {
+            // this.setState({
+            //     redirect:false
+            // })
           return <Redirect to={{
             pathname: '/clientPage2',
             id:this.state.id
@@ -41,6 +67,8 @@ render(){
     return(
         <div>
         <div>
+             
+              {this.renderRedirectToClientDetail()}
               {this.renderRedirect()}
         </div>
     
@@ -50,6 +78,7 @@ render(){
         
             {(this.props.todo=='true')?
             <div style={{textAlign:'right'}}>
+            <Button type="secondary" onClick={this.setRedirectToClientDetail}>More</Button>
             <Button type="primary" onClick={this.setRedirect} >Match</Button>
             </div>:<div></div>
         }}
