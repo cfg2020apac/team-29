@@ -167,6 +167,33 @@ app.post("/matchclient", async (req,res) =>{
  
 });
 
+app.get("/suggestclient", async (req, res) => {
+  const clientsref = db.collection("clients");
+  
+  try {
+    const document = clientsref.doc(req.query.id);
+    var item = await document.get();
+    var currId = item.id;
+    var location = item.data().location;
+    var timestart = item.data().timestart._seconds;
+    console.log(timestart)
+
+    const snapshot = await clientsref.get();
+    var response = {clients: []};
+    snapshot.forEach(doc => {
+      console.log(Math.abs(doc.data().timestart._seconds - timestart));
+      if (doc.data().location == location && doc.id != currId && Math.abs(doc.data().timestart._seconds - timestart) <= 604800)
+        response["clients"].push({id: doc.id, value: doc.data()});
+    });
+
+    return res.status(200).json(response);
+  } catch (e) {
+    console.log("Failed to get clients", snapshot);
+    return res.status(500).end();
+  }
+  
+});
+
 app.post("/write-doc", async (req, res) => {
   const { collection, documentId, documentValue } = req.body;
   const docRef = db.collection(collection).doc(documentId);
