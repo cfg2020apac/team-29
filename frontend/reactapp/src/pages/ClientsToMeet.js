@@ -15,7 +15,7 @@ function ClientsToMeet(){
     return(
         <div>
         <PhoneBreakpoint>
-        <TopNav/>
+        <TopNav />
         <h3 style={{margin: '20px', fontSize: '25px', fontWeight: 'bold'}}>Client To Meet</h3>
         <ClientCard3 name="Client Name 1" status="client status 1" id="id1"></ClientCard3>
         <ClientCard3 name="Client Name 2" status="client status 2" id="id2"></ClientCard3>

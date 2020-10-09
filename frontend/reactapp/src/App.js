@@ -44,15 +44,21 @@ class App extends React.Component {
   }
 
   getCMUserInterface(){
+    if(this.state.role == 'Case Manager'){
       return(
-          <HashRouter basename="/">
-           <Route path="/" exact component={() => <ClientPage handleLogOut={this.handleLogOut} />} />
-            <Route path="/clientPage2" component={ClientPage2} />
-            <Route path="/clientPage4" component={ClientPage4} />
-            <Route path="/clientPageDetail" component={ClientPageDetail} />
+        <HashRouter basename="/">
+         <Route path="/" exact component={() => <ClientPage handleLogOut={this.handleLogOut} />} />
+          <Route path="/clientPage2" component={ClientPage2} />
+          <Route path="/clientPage4" component={ClientPage4} />
+          <Route path="/clientPageDetail" component={ClientPageDetail} />
 
-          </HashRouter>
-      );
+        </HashRouter>
+    );
+    }else{
+      return(
+      <ClientsToMeet handleLogOut={this.handleLogOut} />);
+    }
+      
 
   }
 
