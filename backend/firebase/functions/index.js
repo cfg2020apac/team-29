@@ -169,7 +169,7 @@ app.post("/matchclient", async (req,res) =>{
   const data ={
     id1 : id1,
     id2 : id2,
-    timestamp : Date.now(),
+    time : Date.now(),
     match_status : "Pending supporting documents"
   };
  
