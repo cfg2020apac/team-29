@@ -15,6 +15,50 @@ app.get("/", (req, res) => {
   return res.status(200).send("Firebase is working.");
 });
 
+app.post("/login", async(req,res)=>{
+  const loginref = db.collection("logins")
+  
+  username = req.body.username;
+  password = req.body.password;
+  role     = req.body.role;
+
+  try{
+    const snapshot = await clientsref.where( 'username','==',username).get();
+    
+    if(snapshot.empty){
+      return res.status(500).send("Username does not exist");
+    }
+    
+    snapshot.forEach(doc =>{
+      if (password == doc.password){
+        if(role =="cm"){
+          response.writeHead(302 , {
+              'Location' : '/cm'
+          });
+        }
+        else if(role =="hdb"){
+          response.writeHead(302 , {
+            'Location' : '/hdb'
+        });
+        }
+        else{
+          response.writeHead(302 , {
+            'Location' : '/exp'
+        });
+        }
+        
+      }
+      else{
+        console.log("Incorrect password");
+        return res.status(500).send("Incorrect password");
+      }
+    });   
+  }catch (e){
+    console.log("Failed to get username");
+    return res.status(500).end();
+  }
+})
+
 app.get("/getclients", async (req, res) => {
   const clientsref = db.collection("clients");
   try {
