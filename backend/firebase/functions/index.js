@@ -29,12 +29,13 @@ app.post("/login", async(req,res)=>{
 
   const snapshot = await clientsref.where( 'username','==', username).get();
 
+  
+  
   try{
-    snapshot.forEach(doc =>{
-    
     if(snapshot.empty){
       return res.status(500).send("Username does not exist");
     }
+    snapshot.forEach(doc =>{
 
     role = doc.data().role;
       if (password == doc.data().password){
