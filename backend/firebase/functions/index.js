@@ -30,6 +30,32 @@ app.get("/getclients", async (req, res) => {
   }
 });
 
+app.post("/addclient", async(req, res) => {
+  const clientsref = db.collection("clients");
+
+  logs = [req.body.log];
+  requests = [req.body.request];
+
+  clientsref.set({
+    name: req.body.name,
+    gender : req.body.gender,
+    birth: req.body.birth,
+    timestart : req.body.timestart,
+    timeend : req.body.timeend,
+    location : req.body.location,
+    matched : req.body.matched,
+    comments : req.body.comments,
+    log : logs,
+    request : requests
+  })
+  .then(function() {
+    console.log("Client successfully added!");
+  })
+  .catch(function(error) {
+      console.error("Failed to add client ", error);
+  });
+});
+
 app.post("/write-doc", async (req, res) => {
   const { collection, documentId, documentValue } = req.body;
   const docRef = db.collection(collection).doc(documentId);
