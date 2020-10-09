@@ -137,7 +137,10 @@ app.delete("/deleteclients/:id", async (req, res) => {
   }
 });
 
-app.post("/matchclient", async(id1,id2) =>{
+app.post("/matchclient", async (req,res) =>{
+  id1 = req.body.id1;
+  id2 = req.body.id2;
+
   const clientsref = db.collection("clients");
 
   const update_id1 = await clientsref.doc(id1).update({matched: true});
