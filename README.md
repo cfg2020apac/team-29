@@ -62,4 +62,5 @@ firebase emulators:export data
 ```
 
 Go to http://localhost:4000/firestore to view the database.
+
 Call the api use the base: http://localhost:3002/cfg-apac-team29/us-central1/api/

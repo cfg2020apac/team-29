@@ -26,17 +26,19 @@ app.post("/login", async(req,res)=>{
   
   username = req.body.username;
   password = req.body.password;
-  role     = req.body.role;
 
+  const snapshot = await clientsref.where( 'username','==', username).get();
+
+  
+  
   try{
-    const snapshot = await clientsref.where( 'username','==',username).get();
-    
     if(snapshot.empty){
       return res.status(500).send("Username does not exist");
     }
-    
     snapshot.forEach(doc =>{
-      if (password == doc.password){
+
+    role = doc.data().role;
+      if (password == doc.data().password){
         if(role =="cm"){
           response.writeHead(302 , {
               'Location' : '/cm'
@@ -58,12 +60,16 @@ app.post("/login", async(req,res)=>{
         console.log("Incorrect password");
         return res.status(500).send("Incorrect password");
       }
-    });   
-  }catch (e){
+    });
+      
+  } catch (e){
     console.log("Failed to get username");
     return res.status(500).end();
   }
-})
+
+
+}
+)
 
 app.get("/getclients", async (req, res) => {
   const clientsref = db.collection("clients");
@@ -188,12 +194,10 @@ app.get("/suggestclient", async (req, res) => {
     var currId = item.id;
     var location = item.data().location;
     var timestart = item.data().timestart._seconds;
-    console.log(timestart)
 
     const snapshot = await clientsref.get();
     var response = {clients: []};
     snapshot.forEach(doc => {
-      console.log(Math.abs(doc.data().timestart._seconds - timestart));
       if (doc.data().location == location && doc.id != currId && Math.abs(doc.data().timestart._seconds - timestart) <= 604800)
         response["clients"].push({id: doc.id, value: doc.data()});
     });
