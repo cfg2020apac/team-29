@@ -98,6 +98,32 @@ app.post("/addclient", async(req, res) => {
   console.log( 'Added client with ID:', added.id);
 });
 
+app.put("/updateclients/:id", async (req, res) => {
+  const clientsref = db.collection("clients");
+  logs = [req.body.log];
+  requests = [req.body.request];
+  
+  try {
+    const document = clientsref.doc(req.params.id);
+    await document.update({
+        name: req.body.name,
+        gender : req.body.gender,
+        birth: req.body.birth,
+        timestart : req.body.timestart,
+        timeend : req.body.timeend,
+        location : req.body.location,
+        matched : req.body.matched,
+        comments : req.body.comments,
+        log : logs,
+        request : requests
+    });
+    return res.status(200).send();
+  } catch (e) {
+    console.log("Failed to update client");
+    return res.status(500).send(error);
+  }
+});
+
 app.delete("/deleteclients/:id", async (req, res) => {
   const clientsref = db.collection("clients");
   
