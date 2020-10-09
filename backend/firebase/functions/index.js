@@ -2,6 +2,8 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 admin.initializeApp();
 const db = admin.firestore();
@@ -10,6 +12,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+//Session
+app.use(cookieParser());
+app.use(session({secret: "8forgood"}));
 
 app.get("/", (req, res) => {
   return res.status(200).send("Firebase is working.");
