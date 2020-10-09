@@ -145,9 +145,21 @@ app.post("/matchclient", async (req,res) =>{
 
   const update_id1 = await clientsref.doc(id1).update({matched: true});
   const update_id2 = await clientsref.doc(id2).update({matched: true});
+
+  const matchref = db.collection("match");
   
+  const data ={
+    id1 : id1,
+    id2 : id2,
+    timestamp : Date.now(),
+    match_status : "Pending supporting documents"
+  };
+ 
+  const added = await matchref.add(data);
+
   return res.status(200).send("Client matched");
-})
+ 
+});
 
 app.post("/write-doc", async (req, res) => {
   const { collection, documentId, documentValue } = req.body;
