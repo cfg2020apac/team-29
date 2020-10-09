@@ -23,7 +23,10 @@ class ClientPage2 extends React.Component{
             value:'',
             redirect:false,
             id:this.props.location.id,
-            name:this.props.location.name
+            name:this.props.location.name,
+            id2:'',
+            name2:'',
+            items:[]
         }
     }
 
@@ -35,7 +38,8 @@ class ClientPage2 extends React.Component{
         
         this.setState({
           redirect: true,
-          value: this.props.value
+          value: this.props.value,
+         
         })
       }
       renderRedirect() {
@@ -46,14 +50,32 @@ class ClientPage2 extends React.Component{
           }}></Redirect>
         }
       }
-    componentDidMount(){
-      console.log("id")
-      console.log(this.props.id)
-      console.log(this.state.id)
-    }
+      componentDidMount() {
+        fetch("http://localhost:3002/cfg-apac-team29/us-central1/api/getclients")
+          .then(res => res.json())
+          .then(
+            (result) => {
+              this.setState({
+                isLoaded: true,
+                items: result.clients
+              });
+              // console.log(result)
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+              console.log(error)
+            }
+          )
+      }
     render(){
-      
-        const { value } = this.state
+      console.log(this.state.items)
+        const { value } = this.state.value
     return(
         <div>
             {console.log(this.state.value)}
@@ -77,8 +99,15 @@ class ClientPage2 extends React.Component{
         
         <UserAddOutlined  />
         </div>
-        <ClientCard2 name={this.state.name} status="client status 1" id={this.state.id}></ClientCard2>
-        <ClientCard2 name="Client Name 5" status="client status 5" id="id5"></ClientCard2>
+        {
+     
+     this.state.items.map((item,index)=>(
+       <ClientCard2 name={item.value.name} status="client status 2" id={item.id} todo='true'></ClientCard2>
+     )
+     )
+   }
+        {/* <ClientCard2 name={this.state.name} status="client status 1" id={this.state.id}></ClientCard2>
+        <ClientCard2 name="Client Name 5" status="client status 5" id="id5"></ClientCard2> */}
         {/* <ClientCard2 name="Client Name 56" status="client status 56" id="id56"></ClientCard2>
         <ClientCard2 name="Client Name 76" status="client status 76" id="id76"> </ClientCard2> */}
 
