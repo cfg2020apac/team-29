@@ -7,6 +7,7 @@ import ClientCard from '../components/ClientCard.js';
 import TopNav from '../components/TopNav.js';
 import SearchBar from '../components/SearchBar.js'
 import {UserAddOutlined} from '@ant-design/icons';
+import TopTabs from '../components/TopTabs.js';
 
  function ClientPage(){
 
@@ -26,16 +27,14 @@ import {UserAddOutlined} from '@ant-design/icons';
         </PhoneBreakpoint> */}
         <PhoneBreakpoint>
         <TopNav/>
-        <SearchBar/>
         <h3>Client List/Flatmate List for Matching</h3>
-        <div style={{textAlign:'right' ,marginRight:'10px'}}>
+        <SearchBar/>
+        <TopTabs/>
+      
+
         
-        <UserAddOutlined  />
-        </div>
-        <ClientCard name="Client Name 1" status="client status 1" id="id1"></ClientCard>
-        <ClientCard name="Client Name 2" status="client status 2" id="id2"></ClientCard>
-        <ClientCard name="Client Name 3" status="client status 3" id="id3"></ClientCard>
-        <ClientCard name="Client Name 4" status="client status 4" id="id4"> </ClientCard>
+        
+        
         </PhoneBreakpoint>
         </div>
       

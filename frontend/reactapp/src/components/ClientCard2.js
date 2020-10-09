@@ -4,7 +4,7 @@ import "antd/dist/antd.css";
 import {Redirect} from 'react-router-dom'
 import { MediaQuery } from 'react-responsive'
 import { Card ,Button} from 'antd';
-
+import {StarFilled} from '@ant-design/icons';
 
 class ClientCard extends Component{
 
@@ -43,17 +43,19 @@ render(){
         <div>
               {this.renderRedirect()}
         </div>
-    
         <Card title={this.props.name} extra={<a href="#">{this.props.id}</a>} style={{ marginRight:'10px',marginLeft:'10px',marginBottom:'20px',height:200,width: 'auto', textAlign:'left'}}>
-        <p >{this.props.status}</p>
-        <p>Card content</p>
+        <div style={{display:'flex'}} >
+        <p style={{marginRight:'200px'}}>{this.props.status}</p>
+        <StarFilled style={{marginRight:'50px'}}/>
+        </div>
+        <div>Card cont 2</div> 
+       
+        <div>
+            <Button  style={{float:'left'}}type="secondary"> More </Button>
         
-            {(this.props.todo==true)?
-            <div style={{textAlign:'right'}}>
-            <Button type="primary" onClick={this.setRedirect} >Match</Button>
-            </div>:<div></div>
-        }}
-        
+       
+            <Button style={{float:'right'}} type="primary"  >Select </Button>
+        </div>
       </Card>
       </div>
     )
