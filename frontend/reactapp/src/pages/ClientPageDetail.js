@@ -211,7 +211,7 @@ class ClientPageDetail extends React.Component{
             <PhoneBreakpoint>
 
             <div style={{textAlign:'left' ,marginRight:'10px'}}>
-            <Button type="primary" onClick={this.setBackRedirect} >Back</Button>
+            <Button style={{backgroundColor:'#18244E',color:'#FFFFFF'}}type="primary" onClick={this.setBackRedirect} >Back</Button>
             </div>
         {/* <p>{this.state.id}</p> */}
             <p>Name: {this.state.name}</p>
@@ -231,9 +231,9 @@ class ClientPageDetail extends React.Component{
         ))}
 
         <TextArea rows={4}  onChange={this.onChange} placeholder="Additional Information" id= "commentInput" />
-        <Button type="primary" size="small" style={{float:"right", marginRight:"10px",marginTop:"5px"}} onClick={this.setCommentRedirect} >Add Commnet</Button>
+        <Button type="primary" size="small" style={{float:"right", marginRight:"10px",marginTop:"5px", backgroundColor:'#18244E',color:'#FFFFFF'}} onClick={this.setCommentRedirect} >Add Commnet</Button>
 
-        <Button type="primary" size="small" style={{float:"none", marginRight:"10px",marginTop:"5px"}} onClick={this.setSaveRedirect} >Save</Button>
+        <Button type="primary" size="small" style={{float:"none", marginRight:"10px",marginTop:"5px", backgroundColor:'#18244E',color:'#FFFFFF'}} onClick={this.setSaveRedirect} >Save</Button>
 
             </PhoneBreakpoint>
             </div>
