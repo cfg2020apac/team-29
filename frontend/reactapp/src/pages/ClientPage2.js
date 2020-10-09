@@ -39,6 +39,7 @@ class ClientPage2 extends React.Component{
         this.setState({
           redirect: true,
           value: this.props.value,
+          id2:this.state.id2
          
         })
       }
