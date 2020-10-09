@@ -56,6 +56,19 @@ app.post("/addclient", async(req, res) => {
   });
 });
 
+app.delete("/deleteclients/:id", async (req, res) => {
+  const clientsref = db.collection("clients");
+  
+  try {
+    const document = clientsref.doc(req.params.id);
+    await document.delete();
+    return res.status(200).send();
+  } catch (e) {
+    console.log("Failed to delete client");
+    return res.status(500).end();
+  }
+});
+
 app.post("/write-doc", async (req, res) => {
   const { collection, documentId, documentValue } = req.body;
   const docRef = db.collection(collection).doc(documentId);
