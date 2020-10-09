@@ -30,7 +30,7 @@ class ClientCard extends Component{
       renderRedirect() {
         if (this.state.redirect == true) {
           return <Redirect to={{
-            pathname: '/clientPage2',
+            pathname: '/clientPage4',
             id:this.state.id
           }}></Redirect>
         }
