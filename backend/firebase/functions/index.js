@@ -94,8 +94,8 @@ app.post("/addclient", async(req, res) => {
     request : requests
   };
   
-  const res = await clientsref.add(data);
-  console.log( 'Added client with ID:', res.id);
+  const added = await clientsref.add(data);
+  console.log( 'Added client with ID:', added.id);
 });
 
 app.delete("/deleteclients/:id", async (req, res) => {
