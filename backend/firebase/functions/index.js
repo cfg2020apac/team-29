@@ -68,7 +68,7 @@ app.post("/login", async(req,res)=>{
 app.get("/getclients", async (req, res) => {
   const clientsref = db.collection("clients");
   try {
-    const snapshot = await clientsref.get();
+    const snapshot = await clientsref.where("matched", "==", false).get();
     var response = {clients: []};
     snapshot.forEach(doc => {
       response["clients"].push({id: doc.id, value: doc.data()});
