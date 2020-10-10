@@ -28,7 +28,7 @@ export default function SearchBar (){
     />
     <br /> */}
    
-    <Search style={{marginLeft:'10px',marginRight:'10px'}} placeholder="Search for client name or id" onSearch={value => console.log(value)} enterButton />
+    <Search style={{margin:"10px"}} placeholder="Search for client name or id" onSearch={value => console.log(value)} enterButton />
     <br />
     <br />
     {/* <Search

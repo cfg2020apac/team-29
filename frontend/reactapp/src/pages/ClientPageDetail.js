@@ -10,6 +10,8 @@ import { Input, Card ,Button , Dropdown, Menu, Select} from 'antd';
 import {Redirect} from 'react-router-dom';
 import renderEmpty from 'antd/lib/config-provider/renderEmpty';
 import $ from 'jquery'; 
+import {List,Avatar} from 'antd'
+import OurPageHeader from '../components/OurPageHeader.js'
 const { TextArea } = Input;
 const { Option } = Select;
 
@@ -114,6 +116,23 @@ class ClientPageDetail extends React.Component{
 
 
     render(){
+      const data = [
+        {
+          title: `Name: ${this.state.name} `,
+        },
+        {
+          title: `Gender: ${this.state.gender}`,
+        },
+        {
+          title: `Location: ${this.state.location}`,
+        },
+        {
+          title: `Reason of Application: ${this.state.comment} `,
+        },
+        {
+          title: `Status: ${this.state.status} `
+        }
+      ];
         function onChange(value) {
             console.log(`selected ${value}`);
           }
@@ -211,14 +230,29 @@ class ClientPageDetail extends React.Component{
             <PhoneBreakpoint>
 
             <div style={{textAlign:'left' ,marginRight:'10px'}}>
-            <Button style={{backgroundColor:'#18244E',color:'#FFFFFF'}}type="primary" onClick={this.setBackRedirect} >Back</Button>
+            <Button type="primary" onClick={this.setBackRedirect} >Back</Button>
             </div>
         {/* <p>{this.state.id}</p> */}
-            <p>Name: {this.state.name}</p>
+        <OurPageHeader title="Client Details" subtitle="New Hope Community Service"/>
+          {/* <h3 style={{backgroundColor:'#18244E',color:'#FFFFFF', alignText:'center'}}>Client Details</h3> */}
+        <List
+    itemLayout="horizontal"
+    dataSource={data}
+    renderItem={item => (
+      <List.Item>
+        <List.Item.Meta
+         
+          title={item.title}
+         
+        />
+      </List.Item>
+    )}
+  />
+            {/* <p>Name: {this.state.name}</p>
             <p>Gender: {this.state.gender}</p>
             <p>Location: {this.state.location}</p>
             <p>Reason Of Application: {this.state.comment}</p>
-            <p>Status: {this.state.status}</p>
+            <p>Status: {this.state.status}</p> */}
         <p>Assigned Counsellor: {menuCounsellor}</p>
         <p>Assigned Legal Advisor: {menuLegalAdvisor}</p>
         <p>Assigned HBD officer: {menuHBD}</p>
@@ -231,9 +265,9 @@ class ClientPageDetail extends React.Component{
         ))}
 
         <TextArea rows={4}  onChange={this.onChange} placeholder="Additional Information" id= "commentInput" />
-        <Button type="primary" size="small" style={{float:"right", marginRight:"10px",marginTop:"5px", backgroundColor:'#18244E',color:'#FFFFFF'}} onClick={this.setCommentRedirect} >Add Commnet</Button>
+        <Button type="primary"  style={{float:"right", marginRight:"10px",marginTop:"5px", backgroundColor:'#18244E',color:'#FFFFFF'}} onClick={this.setCommentRedirect} >Add Commnet</Button>
 
-        <Button type="primary" size="small" style={{float:"none", marginRight:"10px",marginTop:"5px", backgroundColor:'#18244E',color:'#FFFFFF'}} onClick={this.setSaveRedirect} >Save</Button>
+        <Button type="primary"  style={{float:"none", marginRight:"10px",marginTop:"5px", backgroundColor:'#18244E',color:'#FFFFFF'}} onClick={this.setSaveRedirect} >Save</Button>
 
             </PhoneBreakpoint>
             </div>

@@ -138,7 +138,7 @@ class Login extends React.Component {
                     <label className='LoginElement' for="input_password">Password:</label>
                     <input className='LoginElement' id="input_password" type="password" value={this.password} onChange={this.onPasswordChange} />
                     <br/>
-                    <Button type='primary' onClick={this.handleLoginSubmit}>Submit</Button>
+                    <Button shape="round" size="large" style={{backgroundColor:'#18244E',color:'#FFFFFF'}} type='secondary' onClick={this.handleLoginSubmit}>Submit</Button>
                 {this.handleLoginFailed()}       
             </div>
         );

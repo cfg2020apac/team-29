@@ -52,7 +52,7 @@ class  TopTabs extends React.Component{
     console.log(this.state.items)
     return (
     <div>
-      <UserAddOutlined style={{float:"right"}}/>
+      <UserAddOutlined style={{float:"right",marginRight:"15px",marginTop:"10px"}}/>
   <Tabs onChange={callback} type="card">
   
     <TabPane style={{color:"#18244E"}} tab="Todo"  key="1">
@@ -69,16 +69,16 @@ class  TopTabs extends React.Component{
         <ClientCard name="Client Name 4" status="client status 4" id="id4" todo='true'> </ClientCard> */}
     </TabPane>
     <TabPane style={{color:"#18244E"}} tab="In Progress" key="2">
-    <ClientCard name="Client Name 11" status="client status 11" id="id1"></ClientCard>
-        <ClientCard name="Client Name 21" status="client status 21" id="id2"></ClientCard>
-        <ClientCard name="Client Name 32" status="client status 32" id="id3"></ClientCard>
-        <ClientCard name="Client Name 43" status="client status 43" id="id4"> </ClientCard>
+    <ClientCard name="Kathy" status="medical treatments needed" id="id1"></ClientCard>
+        <ClientCard name="Toby" status="divorce case trial" id="id2"></ClientCard>
+        <ClientCard name="Rony" status="Lawsuit help needed" id="id3"></ClientCard>
+        <ClientCard name="Cathy" status="Job searching" id="id4"> </ClientCard>
     </TabPane>
     <TabPane style={{color:"#18244E"}} tab="Done" key="3">
-    <ClientCard name="Client Name 15" status="client status 15" id="id1"></ClientCard>
-        <ClientCard name="Client Name 24" status="client status 24" id="id2"></ClientCard>
-        <ClientCard name="Client Name 35" status="client status 35" id="id3"></ClientCard>
-        <ClientCard name="Client Name 46" status="client status 46" id="id4"> </ClientCard>
+    <ClientCard name="Cacey" status="Cleared of all issues" id="id1"></ClientCard>
+        <ClientCard name="Carmen" status="Cleared of all issues" id="id2"></ClientCard>
+        <ClientCard name="Client Name 35" status="Cleared of all issues" id="id3"></ClientCard>
+        <ClientCard name="Client Name 46" status="Cleared of all issues" id="id4"> </ClientCard>
     </TabPane>
   </Tabs>
   </div>
